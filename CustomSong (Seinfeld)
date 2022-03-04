@@ -1,11 +1,10 @@
+# Seinfeld Sublime Sine Waves Remix
+
 # VARIABLES
 
 seinfeld_intro = "C:/Users/micah_sessions/Downloads/seinfeld_intro_SNIP.wav"
 
-
-
 snake = "C:/Users/micah_sessions/Downloads/snake_death.wav"
-
 
 # ---------
 
@@ -21,12 +20,26 @@ define :drum_regular do
   sleep 1
 end
 
-use_bpm 110
+define :snake_requiem do
+  sample snake, amp: 2
+  sleep 3
+end
+
+a = 0.25
+define :creschendo do
+  32.times do
+    sample :bd_haus, amp: a
+    a = a + 0.10
+    sleep 1
+  end
+end
+
+use_bpm 115
 use_synth :dpulse
 
 sample seinfeld_intro
 
-sleep 5.5
+sleep 5.7
 
 live_loop :main do
   #M3
@@ -83,20 +96,44 @@ live_loop :main do
   sleep 2
 end
 
+sleep 16
+
+live_loop :drum_special do
+  31.times do
+    drum_special
+  end
+  stop
+end
+
+live_loop :drum_regular do
+  31.times do
+    drum_regular
+  end
+  stop
+end
+
+sleep 16
+
+live_loop :snake_SNAKE! do
+  6.times do
+    sample snake, amp: 2
+    sleep 3
+  end
+  stop
+end
+
 sleep 32
+
+creschendo
 
 live_loop :drum_special do
   drum_special
 end
 
 live_loop :drum_regular do
-  
   drum_regular
 end
 
-sleep 32
-
 live_loop :snake_SNAKE! do
-  sample snake, amp: 2
-  sleep 3
+  snake_requiem
 end
