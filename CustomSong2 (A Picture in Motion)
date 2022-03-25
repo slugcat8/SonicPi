@@ -1,0 +1,24 @@
+use_bpm 90
+use_synth :blade
+
+define :synth_main1 do |n1, n2, n3, n4|
+  play n1
+  sleep 0.5
+  play n2
+  sleep 0.5
+  play n3
+  sleep 0.5
+  play n4
+  sleep 0.5
+end
+
+#M1
+2.times do
+  synth_main1 :c, :d4, :e4, :a4
+  synth_main1 :a4, :c, :d4, :e4
+end
+
+2.times do
+  synth_main1 :a, :d4, :e4, :a4
+  synth_main1
+end
