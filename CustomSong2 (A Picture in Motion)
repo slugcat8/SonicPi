@@ -1,5 +1,5 @@
 use_bpm 90
-use_synth :blade
+use_synth :saw
 define :synth_main1 do |n1, n2, n3, n4, n5, n6, n7, n8|
   with_fx :ping_pong do
     play n1
