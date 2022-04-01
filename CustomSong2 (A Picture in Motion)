@@ -1,5 +1,11 @@
 use_bpm 90
 use_synth :saw
+
+titan1 = "C:/Users/micah_sessions/Downloads/titan_sample1.wav"
+titan2 = "C:/Users/micah_sessions/Downloads/titan_sample2.wav"
+titan3 = "C:/Users/micah_sessions/Downloads/titan_sample3.wav"
+titan_final = "C:/Users/micah_sessions/Downloads/titan_sample_final.wav"
+
 define :synth_main1 do |n1, n2, n3, n4, n5, n6, n7, n8|
   with_fx :ping_pong do
     play n1
@@ -21,13 +27,14 @@ drum_amp = [1, 0.5, 0.25]
 
 i = 0
 define :drum_main do
-  sample :elec_mid_snare
+  sample :elec_mid_snare, amp: 4
   sleep drum_amp[i]
 end
 
+titan_synth = [titan1, titan2, titan3]
 
 #M1
-
+=begin
 4.times do
   synth_main1 :a, :a4, :d4, :a, :e4, :d4, :a4, :e4
 end
@@ -71,3 +78,22 @@ end
 4.times do
   synth_main1 :fs, :g4, :d4, :fs, :e4, :d4, :g4, :e4
 end
+
+sample :ambi_lunar_land, rate: 0.5, amp: 2
+sleep 12
+=end
+
+t = 0
+i2 = 1
+6.times do
+  sample titan_synth[t], attack: 4, amp: i2
+  t = t + 1
+  if t >= 3
+    t = 0
+  end
+  i2 = i2 + 0.5
+  sleep 8
+end
+
+sample titan_final, attack: 4, amp: 4
+sleep 8
