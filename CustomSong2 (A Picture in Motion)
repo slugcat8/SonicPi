@@ -31,10 +31,20 @@ define :drum_main do
   sleep drum_amp[i]
 end
 
+define :drum_main2 do
+  with_fx :gverb do
+    sample :bd_sone, amp: 2
+    sleep 8
+    sample :bd_sone, amp: 2
+    sleep 1
+    sample :bd_sone, amp: 2
+    sleep 7
+  end
+end
+
 titan_synth = [titan1, titan2, titan3]
 
 #M1
-=begin
 4.times do
   synth_main1 :a, :a4, :d4, :a, :e4, :d4, :a4, :e4
 end
@@ -81,19 +91,42 @@ end
 
 sample :ambi_lunar_land, rate: 0.5, amp: 2
 sleep 12
-=end
 
 t = 0
 i2 = 1
 6.times do
-  sample titan_synth[t], attack: 4, amp: i2
+  sample titan_synth[t], attack: 5, rate: 2, amp: i2
   t = t + 1
   if t >= 3
     t = 0
   end
   i2 = i2 + 0.5
-  sleep 8
+  sleep 5
 end
 
 sample titan_final, attack: 4, amp: 4
-sleep 8
+sleep 9
+
+t = 0
+live_loop :titan do
+  sample titan_synth[t], attack: 5, rate: 2, amp: 5
+  t = t + 1
+  if t >= 3
+    t = 0
+  end
+  sleep 8
+end
+
+live_loop :drum_main2 do
+  drum_main2
+end
+
+live_loop :in_motion do
+  4.times do
+    synth_main1 :a, :a4, :d4, :a, :e4, :d4, :a4, :e4
+  end
+  
+  4.times do
+    synth_main1 :f, :a4, :d4, :f, :e4, :d4, :a4, :e4
+  end
+end
