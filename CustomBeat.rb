@@ -1,3 +1,4 @@
+# Change user in file name to "papap"
 deep_light1 = "C:/Users/micah_sessions/Downloads/Rain_World_OST_-_Deep_Light_(getmp3.pro).wav"
 deep_light2 = "C:/Users/micah_sessions/Downloads/Rain_World_OST_-_Deep_Light2_(getmp3.pro).wav"
 
