@@ -1,4 +1,6 @@
-# AP Computer Science Principles Performance Task Version
+# AP Computer Science Principles Performance Task
+# all externl samples used are from "Titan" by Disasterpeace (https://www.youtube.com/watch?v=D6os0Upx5A0)
+# the rythmn of the notes in synth_main1 and drum_main2 are inspired by Waveshaper's "A Picture in Motion" (https://www.youtube.com/watch?v=ZUlAytznxn4)
 
 use_bpm 90
 use_synth :saw
@@ -162,4 +164,6 @@ live_loop :in_motion do
     synth_amp = synth_amp - 0.25
   end
   stop
-end
+end# Welcome to Sonic Pi
+
+
