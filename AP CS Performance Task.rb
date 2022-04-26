@@ -71,33 +71,20 @@ define :titan_main do
 end
 
 #M1
-x = 0
+n = 1
+odd_even = 0
 8.times do
-  if x = 0
-    2.times do
-      synth_main1 :a, :a4, :d4, :a, :e4, :d4, :a4, :e4, 1
-    end
-  else
+  odd_even = n.modulo(2)
+  if odd_even == 0
     2.times do
       synth_main1 :f, :a4, :d4, :f, :e4, :d4, :a4, :e4, 1
     end
+  else
+    2.times do
+      synth_main1 :a, :a4, :d4, :a, :e4, :d4, :a4, :e4, 1
+    end
   end
-end
-
-2.times do
-  synth_main1 :a, :a4, :d4, :a, :e4, :d4, :a4, :e4, 1
-end
-
-2.times do
-  synth_main1 :f, :a4, :d4, :f, :e4, :d4, :a4, :e4, 1
-end
-
-2.times do
-  synth_main1 :a, :a4, :d4, :a, :e4, :d4, :a4, :e4, 1
-end
-
-2.times do
-  synth_main1 :f, :a4, :d4, :f, :e4, :d4, :a4, :e4, 1
+  n = n + 1
 end
 
 live_loop :drum_main do
